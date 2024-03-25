@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProxiesController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::match(['GET', 'POST'], '/', [ProxiesController::class, 'index']);
+
+Route::get('/welcome', function () { return view('welcome'); });
