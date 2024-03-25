@@ -22,6 +22,9 @@ class BulkChecker
 
     public function process(): void
     {
+        if (!$this->sockets) {
+            return;
+        }
         $promises = [];
         foreach ($this->sockets as $socket) {
             $promises[$socket] = $this->client->checkAsync($socket);
